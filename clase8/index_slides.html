@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Clase 8</title>
+
+		<meta name="description" content="Curso Teorico/Péctico de CSS3">
+		<meta name="author" content="Carlos Moneda">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/custom-styles.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img class="css3-logo" alt="css3" src="images/css3.svg">
+					<h1>Curso de CSS3</h1>
+					<h3><span class="enazul">{</span> El amigable mundo de la hojas de estilo <span class="enazul">}</span></h3>
+				</section>
+
+
+				<!-- Inician slides -->
+				
+				<section>
+				<h2>Para <span class="enazul"> comenzar</span></h2>
+				</section>
+
+				<section>
+					<p>Primero agregaremos el siguiente código justo antes del footer:</p>
+					<pre>
+						<code>
+<div class="galeria">
+	<a href="#"><img src="images/galeria/moto1.jpg" alt="moto1" class="moto1" /></a>
+	<a href="#"><img src="images/galeria/moto2.jpg" alt="moto2" class="moto2" /></a>
+	etc...
+</div>
+						</code>
+					</pre>
+					<p>Agregaremos elementos del moto1 al moto10</p>
+				</section>
+
+				<section>
+				<p>Aplicaremos algo de css al bloque galería:</p>
+				<pre>
+					<code>
+.galeria{
+	margin: auto;
+    text-align: center;
+    width: 940px;
+}
+					</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Ahora a los links:</p>
+					<pre>
+						<code>
+.galeria a{
+	display: inline-block;
+    height: 100px;
+    margin-right: 6%;
+    width: 100px;
+}
+						</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Ahora a las imágenes:</p>
+					<pre>
+						<code>
+.galeria img{
+	border: 1px solid #EAEAEA;
+    width: 100px;
+	height: auto;
+}
+						</code>
+					</pre>
+				</section>
+				
+				
+				
+				
+				<section>
+					<h2>Propiedad<span class="enazul"> box-shadow</span> (caja de sombra)</h2>
+					<p>Añade una sombra al contenedor del elemento.</p>
+					<pre>
+						<code>
+selector {
+  box-shadow: "medida horizontal" "medida vertical" "difuminación"* "tamaño"* #color;
+}
+						</code>
+					</pre>
+					<p>Difuminación y tamaño son valores opcionales que pueden o no incluirse.</p>
+				</section>
+				
+				
+				<section>
+					<p>Le daremos sombra a los botones al :hover y a las imágenes de las motos:</p>
+					<pre>
+						<code>
+.ca-menu li:hover,
+.galeria a:hover img{
+	box-shadow: 1px 1px 3px 0 #343434;
+}
+
+						</code>
+					</pre>
+				</section>
+				
+				
+				
+				<section>
+				<h2>Propiedad<span class="enazul"> Transform</span></h2>
+				<p>Aplica una transformación <span class="enazul">2D o 3D</span> a un elemento. Esta propiedad permite rotar, escalar, mover, sesgar, etc, elementos.</p>
+				<pre>
+				<code>
+selector{
+	transform: método de transformacion(valores de método);
+}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+				<h2>Métodos de la propiedad<span class="enazul">Transform</span></h2>
+				<p>Esta propiedad es de las más complejas y novedosa de CSS3 y consta de<span class="enazul"> varios métodos de transformación:</span></p>
+				</section>
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> translate()</span></h2>
+				<p>Mueve al elemento desde su posición original, en función de los parámetros horizontal(eje X) y vertical(eje Y)</p>
+				<pre>
+				<code>
+selector {
+	translate:(ejeX,ejeY);
+}
+				</code>
+				</pre>
+				</section>
+
+				<section>
+					<p>Un ejemplo:</p>
+				</section>
+				
+				<section>
+					<p>Del bloque de imágenes seleccionaremos al primer elemento y le asignaremos los siguientes valores, para cuando el curso se posiciona sobre la imagen:</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: translate(25px,5px); /* IE 9 */
+-webkit-transform: translate(25px,5px); /* Chrome, Safari, Opera */
+transform: translate(25px,5px);
+
+}
+				</code>
+				</pre>
+				<p>Esta propiedad requiere uso de prefijos para navegador</p>
+				</section>
+				
+				
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> rotate()</span></h2>
+				<p>el elemento gira en sentido de las manecillas del reloj en un grado determinado. Los valores negativos se permiten y gira el elemento hacia la izquierda.</p>
+				<pre>
+				<code>
+selector {
+	rotate:(#grados);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>seleccionaremos la segunda imagen y aplicaremos la propiedad de rotación al:hover</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: rotate(30deg); /* IE 9 */
+-webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+transform: rotate(30deg);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> rotate (X°)</span></h2>
+				<p>El elemento gira sobre el eje de las X (horizontalmente)</p>
+				<pre>
+				<code>
+selector {
+	rotateX:(#grados);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>seleccionaremos la tercera imagen y aplicaremos la propiedad de rotación en X al:hover</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: transform:rotateX(60deg); /* IE 9 */
+-webkit-transform:rotateX(60deg); /* Chrome, Safari, Opera */
+transform:rotateX(60deg);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> rotate(Y°)</span></h2>
+				<p>Define la rotación de elemento en el eje de las Y</p>
+				<pre>
+				<code>
+selector {
+	rotateY:(#grados);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>En la misma tercera imagen, agregaremos en valor de rotación en Y</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: transform:rotateX(60deg) rotateY(50deg); /* IE 9 */
+-webkit-transform:rotateX(60deg) rotateY(50deg); /* Chrome, Safari, Opera */
+transform:rotateX(60deg) rotateY(50deg);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> rotate 3D(x,y,z,)</span></h2>
+				<p>Define una rotación simulando un efecto 3D añadiendo el eje Z a la transformación</p>
+				<pre>
+				<code>
+selector {
+	transform:rotateX(°) rotateY(°) rotateZ(°);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Ahora en la cuarta imagen añadimos la siguiente regla css:</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: transform:rotateX(60deg) rotateY(50deg) rotateZ(60deg); /* IE 9 */
+-webkit-transform:rotateX(60deg) rotateY(50deg) rotateZ(60deg); /* Chrome, Safari, Opera */
+transform:rotateX(60deg) rotateY(50deg) rotateZ(60deg);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> scale()</span></h2>
+				<p>el elemento aumenta o disminuye el tamaño, dependiendo de los parámetros dados en lo ancho (eje X) y la altura (eje Y):</p>
+				<pre>
+				<code>
+selector {
+	scale:(valorX, valorY);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>En la quinta imagen al :hover</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: scale(2,2); /* IE 9 */
+-webkit-transform: scale(2,2); /* Chrome, Safari, Opera */
+transform: scale(2,2);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> skew()</span></h2>
+				<p>El elemento gira en un ángulo según los parámetros dados para la (eje X) horizontal y el (eje Y) líneas verticales:</p>
+				<pre>
+				<code>
+selector {
+	skew:( valorX°, valorY°);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Ahora para la sexta imagen:</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: skew(30deg,20deg); /* IE 9 */
+-webkit-transform: skew(30deg,20deg); /* Chrome, Safari, Opera */
+transform: skew(30deg,20deg);
+}
+				</code>
+				</pre>
+				</section>
+				
+				<section>
+				<h2>Transform:<span class="enazul"> skew(X)</span></h2>
+				<p>Define una transformación de sesgo 2D a lo largo del eje X</p>
+				<pre>
+				<code>
+selector {
+	skewX:( valorX°);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>En la séptima imagen:</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: skewX(40deg); /* IE 9 */
+-webkit-transform: skewX(40deg); /* Chrome, Safari, Opera */
+transform: skewX(40deg);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> skew(Y)</span></h2>
+				<p>Define una transformación de sesgo 2D a lo largo del eje Y</p>
+				<pre>
+				<code>
+selector {
+	skewY:( valorY°);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Por la octava imagen:</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform: skewY(30deg); /* IE 9 */
+-webkit-transform: skewY(30deg); /* Chrome, Safari, Opera */
+transform: skewY(30deg);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				
+				
+				<section>
+				<h2>Transform:<span class="enazul"> matrix()</span></h2>
+				<p>Este método toma seis parámetros, que contiene funciones matemáticas, que le permite: rotar, escalar, mover (trasladar) y sesgar elementos.</p>
+				<pre>
+				<code>
+selector {
+	transform:matrix(n1,n2,n3,n4,n5,n6);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Por la novena imagen:</p>
+					<pre>
+				<code>
+selector?:hover{
+-ms-transform:matrix(1,0.5,-0.5,1,0,0); /* IE 9 */
+-webkit-transform:matrix(1,0.5,-0.5,1,0,0); /* Chrome, Safari, Opera */
+transform:matrix(1,0.5,-0.5,1,0,0);
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				
+				
+				<section>
+				<h2>Propiedad<span class="enazul"> transform-origin</span></h2>
+				<p> Cuando se aplica una transformación a un objeto, se crea un sistema de coordenadas local. Por defecto, el origen - el punto (0,0) - del sistema de coordenadas local se encuentra en el centro del objeto.</p>
+				<p> Esta propiedad permite mover el punto de origen del objeto en su eje X y Y.</p>
+				<pre>
+				<code>
+selector {
+	transform-origin:(X Y;)
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Para la ultima imagen:</p>
+					<pre>
+				<code>
+selector?:hover{
+	transform: rotate(45deg);
+	transform-origin:20% 40%;
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-ms-transform-origin:20% 40%; /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	-webkit-transform-origin:20% 40%; /* Chrome, Safari, Opera */
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Pero... tengo mala memoria.</p>
+					<p>¿Cómo puedo agregarle el nombre a cada transición para recordarla mejor?</p>
+				</section>
+				
+				<section>
+					<p>Primero agregaremos un div más a cada elemento del bloque galería con el nombre del método que le corresponde</p>
+				<pre>
+				<code>
+<a href="#"><div class="tool-tip">translate</div><img src="images/galeria/moto1.jpg" alt="moto1" class="moto1" /></a>
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p>Le daremos una regle de css al nuevo div:</p>
+				<pre>
+				<code>
+.tool-tip{
+	background-color: red;
+}
+				</code>
+				</pre>
+				</section>
+				
+				<section>
+					<p>Como solo quiero que el nombre aparezca al :hover, <span class"enazul">¿qué debo hacer?</span></p>
+				</section>
+				
+				<section>
+					<p>Exacto! modifico la propiedad display</p>
+				<pre>
+				<code>
+.tool-tip{
+	background-color: red;
+	display: none;
+}
+a:hover .tool-tip{
+	display: block;
+    margin-top: -16px;
+    padding: 2px 6px;
+    position: absolute;
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+				<h2>Propiedad<span class="enazul"> z-index</span></h2>
+				<p>La propiedad z-index especifica el orden de apilamiento de un elemento.</p>
+				<p>Un elemento con mayor orden de apilamiento es siempre frente a un elemento con un orden de apilamiento inferior.</p>
+				<pre>
+				<code>
+selector{
+z-index: valor(número positivo o negativo);
+}
+				</code>
+				</pre>
+				</section>
+				
+				<section>
+					<p>Agreguemos esta propiedad para lanzar adelante la etiqueta con el nombre del método.</span></p>
+					<pre>
+				<code>
+
+.tool-tip {
+    background-color: #FF0000;
+    display: none;
+    z-index: 1;
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+					<p><span class="enazul">IMPORTANTE:</span></p>
+					<p>z-index sólo funciona con objetos que tengan la propiedad <span class="enazul">position</span> seteada como: relative, fixed o absolute.</p>
+				</section>
+				
+				
+				<section>
+					<p>Ahora con lo que hemos visto hagamos un <span class="enazul">slide</span> que se vea cool</p>
+				</section>
+				
+				<section>
+					<p>Primero borraremos:</p>
+					<pre>
+					<code>
+					
+<div class="image"></div>
+					
+					</code>
+					</pre>
+				</section>
+				
+				<section>
+					<p>En su lugar agregaremos el siguiente div:</p>
+					<pre>
+					<code>
+					
+<div class= "slide-block"></div>
+					
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>dentro del bloque "slide-block" agregaremos los siguientes divs:</p>
+					<pre>
+					<code>
+<div class= "slide-block">					
+<div class="space3d"> 
+<div class="_3dbox">
+	<div class="_3dface _3dface--front"></div>
+	<div class="_3dface _3dface--top"></div>
+	<div class="_3dface _3dface--bottom"></div>
+	<div class="_3dface _3dface--left"></div>
+	<div class="_3dface _3dface--right"></div>
+	<div class="_3dface _3dface--back"></div>
+</div>
+</div>
+</div>
+					
+					</code>
+					</pre>
+				</section>
+				
+				
+				
+				<section>
+					<p>Aplicamos la siguiente regla css al div "space3d"</p>
+					<pre>
+					<code>
+.space3d {
+  width: 800px;
+  height: 250px;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+}
+					
+					</code>
+					</pre>
+				</section>
+					
+					<section>
+					<p>Debido a la posición que aplicamos, el texto invade la zona del slide... corrijamos eso:</p>
+					<pre>
+					<code>
+.slide-block{
+	height: 300px;
+}
+					
+					</code>
+					</pre>
+					<p>la altura del elemento que contiene el slide servirá para generar el espacio entre los bloques.</p>
+				</section>
+			
+					<section>
+					<p>Le damos css al elemento .3dface</p>
+					<pre>
+					<code>
+._3dface {
+  overflow: hidden;
+  position: absolute;
+  background: #FFF;
+  color: #333;
+  line-height: 250px;
+}
+					
+					</code>
+					</pre>
+				</section>
+					
+					
+					<section>
+					<p>Ahora como este slide esta basado en la forma de un cubo, procederemos a darle estilo a cada cara de nuestro slide.</p>
+					<pre>
+					<code>
+._3dface--front {
+  width: 800px;
+  height: 250px;
+  -webkit-transform: translate3d(0, 0, 400px);
+  transform: translate3d(0, 0, 400px);
+  background: url("../images/slide/slide2.png") no-repeat scroll 0 0 transparent;
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					<section>
+					<p>CSS lado izquierdo</p>
+					<pre>
+					<code>
+._3dface--left {
+  background: url("../images/slide/slide1.png") no-repeat scroll 0 0 transparent;
+  width: 800px;
+  height: 250px;
+  left: 50%;
+  margin-left: -125px;
+  -webkit-transform: rotateY(-90deg) translate3d(0, 0, 400px);
+  transform: rotateY(-90deg) translate3d(0, 0, 400px);
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					<p>CSS lado derecho</p>
+					<pre>
+					<code>
+._3dface--right {
+  width: 800px;
+  height: 250px;
+  left: 50%;
+  margin-left: -125px;
+  -webkit-transform: rotateY(90deg) translate3d(0, 0, 125px);
+  transform: rotateY(90deg) translate3d(0, 0, 125px);
+  background: url("../images/slide/slide3.png") no-repeat scroll 0 0 transparent;
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					<p>CSS cara superior</p>
+					<pre>
+					<code>
+._3dface--top {
+  width: 800px;
+  height: 250px;
+  -webkit-transform: rotateX(-90deg) translate3d(0, 0, 125px);
+  transform: rotateX(90deg) translate3d(0, 0, 125px);
+   background: url("../images/slide/slide4.png") no-repeat scroll 0 0 transparent;
+  
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					
+					<section>
+					<p>CSS cara inferior</p>
+					<pre>
+					<code>
+._3dface--bottom {
+  width: 800px;
+  height: 250px;
+  -webkit-transform: rotateX(90deg) translate3d(0, 0, 125px);
+  transform: rotateX(-90deg) translate3d(0, 0, 125px);
+  background: url("../images/slide/slide5.png") no-repeat scroll 0 0 transparent;
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					<p>CSS cara posterior</p>
+					<pre>
+					<code>
+._3dface--back {
+  width: 800px;
+  height: 250px;
+  -webkit-transform: rotateY(180deg) translate3d(0, 0, 125px);
+  transform: rotateY(180deg) translate3d(0, 0, 125px);
+  background: url("../images/slide/slide6.png") no-repeat scroll 0 0 transparent;
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					<p>CSS para 3dbox, este elemento dará el efecto 3d al slide:</p>
+					<pre>
+					<code>
+._3dbox {
+  display: inline-block;
+  transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					<p>Ahora necesitamos unos controles para el slide:</p>
+					<p>Agregamos este codigo en nuestro archivo html justo arriba del código del cubo.</p>
+					<pre>
+					<code>
+<!-- CONTROLS -->
+<input type="radio" checked id="radio-front" name="select-face"/>    
+    <input type="radio" id="radio-left" name="select-face"/>
+    <input type="radio" id="radio-right" name="select-face"/>
+    <input type="radio" id="radio-top" name="select-face"/>
+    <input type="radio" id="radio-bottom" name="select-face"/>
+    <input type="radio" id="radio-back" name="select-face"/>
+					
+					</code>
+					</pre>
+					</section>
+					
+					<section>
+					<p>Para situar los botones en la parte inferior:</p>
+					<pre>
+					<code>
+input {
+    float: left;
+    left: 47%;
+    margin-top: 260px;
+    position: relative;
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					<section>
+					<p>Le daremos funcionalidad asignando una regla de css a cada elemento input:</p>
+					<pre>
+					<code>
+#radio-left:checked ~ .space3d ._3dbox {
+	-webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					<section>
+					<p>Para la cara derecha:</p>
+					<pre>
+					<code>
+#radio-right:checked ~ .space3d ._3dbox {
+	-webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					<p>Para la cara inferior:</p>
+					<pre>
+					<code>
+#radio-bottom:checked ~ .space3d ._3dbox {
+	-webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					</p>Para la cara superior:</p>
+					<pre>
+					<code>
+#radio-top:checked ~ .space3d ._3dbox {
+	-webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+					<section>
+					<p>Para la cara posterior:</p>
+					<pre>
+					<code>
+
+#radio-back:checked ~ .space3d ._3dbox {
+-webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+					
+					</code>
+					</pre>
+					</section>
+					
+					
+				<section>
+				</p>Chequemos algunas propiedades que utilizamos:</p>
+				</section>	
+				
+				<section>
+				<h2>Propiedad <span class="enazul">Overflow</span></h2>
+				</p>Controla el comportamiento de los contenidos que no caben en su elemento contenedor.</p>
+				<p class="pseudoclass">
+					<span class="enazul tabla">visible</span><span>mostrará el contenido completo del div.</span><br>
+					<span class="enazul tabla">hidden</span><span>ocultara el contenido que rebase los bordes del elemento.</span><br>
+					<span class="enazul tabla">scroll</span> <span>añade un scroll para ver el contenido completo del elemento.</span><br>
+					<span class="enazul tabla">auto</span> <span>se adapta y añade la barra de scroll solo si es necesario.</span>
+				</p>
+				</section>
+				
+				<section>
+				<h2>Propiedad Transform <span class="enazul">translate3d(x,y,z);</span></h2>
+				</p>Añade un efecto 3d haciendo uso del eje Z. </p>
+				</section>
+				
+				<section>
+				<h2>Propiedad <span class="enazul">transform-style</span></h2>
+				</p>Especifica cómo los elementos anidados se prestan en el espacio 3D.</p>
+				<p class="pseudoclass">
+					<span class="enazul tabla">flat</span><span>El valor por defecto. Los elementos hijos no conservarán su posición en 3D.</span><br>
+					<span class="enazul tabla">preserve-3d</span><span>Los elementos anidados o hijos  preservarán su posición en 3D</span><br>
+				</p>
+				</section>
+				
+				
+				<section>
+				<h2>Propiedad transition<span class="enazul"> cubic-bezier()</span></h2>
+				</p>Por defecto, las funciones de tiempo se definen mediante curva matemática de 6 valores (P1x,P1y,P2x,P2y).</p>
+				<p class="pseudoclass">
+					<span class="enazul tabla">ease</span><span>cubic-bezier(0.25,0.1,0.25,1);  </span><br>
+					<span class="enazul tabla">linear</span><span>cubic-bezier(0,0,1,1)</span><br>
+					<span class="enazul tabla">ease-in</span><span>cubic-bezier(0.42, 0.0, 1.0, 1.0)  </span><br>
+					<span class="enazul tabla">ease-out</span><span>cubic-bezier(0.0, 0.0, 0.58, 1.0)</span><br>
+					<span class="enazul tabla">ease-out</span><span>cubic-bezier(0.42, 0.0, 0.58, 1.0)</span><br>
+				</p>
+				</section>
+				
+				
+				
+				
+				
+		
+				
+				
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
