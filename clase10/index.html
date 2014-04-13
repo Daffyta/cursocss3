@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Clase 10</title>
+
+		<meta name="description" content="Curso Teorico/Péctico de CSS3">
+		<meta name="author" content="Carlos Moneda">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/custom-styles.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img class="css3-logo" alt="css3" src="images/css3.svg">
+					<h1>Curso de CSS3</h1>
+					<h3><span class="enazul">{</span> El amigable mundo de la hojas de estilo <span class="enazul">}</span></h3>
+				</section>
+
+
+				<!-- Inician slides -->
+				
+				<section>
+					<p>Antes de empezar, un pequeño Test más</p>
+				</section>
+				
+				<section>
+				<p>Primero css al <span class="enazul">info-menu</span></p>
+				<pre>
+				<code>
+li .info-menu{
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    font: 12px sans-serif;
+    margin-left: 315px;
+    padding: 15px;
+    position: absolute;
+    width: 440px;
+	text-align: center;
+}
+					</code>
+					</pre>
+				
+				</section>
+				
+				
+				<section>
+				<p>Luego css al link</p>
+				<pre>
+				<code>
+li .info-menu a{
+	display: inline;
+}
+					</code>
+					</pre>
+				
+				</section>
+				
+				
+				<section>
+				<p>Ahora a las imagenes:</p>
+				<pre>
+				<code>
+.info-menu a img{
+	border: 4px solid red;
+	margin-left:10px;
+	border-radius: 10px 0 10px 0;
+}
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+				<p>Seguimos con el texto:</p>
+				<pre>
+				<code>
+.info-menu p{
+	text-align: left;
+	width: 100%;
+}
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+				<p>La imagen triangular:</p>
+				<pre>
+				<code>
+li .info-menu .punta{
+	border: none;
+    left: -17px;
+    position: absolute;
+    width: auto;
+	
+}
+					</code>
+					</pre>
+				</section>
+				
+				<section>
+				<p>Para hacer desaparecer el div <span class="enazul">info-menu</span>, aplicamos opcaidad:</p>
+				<pre>
+				<code>
+li .info-menu{
+	opacity: 0;
+	
+}
+					</code>
+					</pre>
+				</section>
+				
+				<section>
+				<p>Aplicamos css para hacer visible el div al :hover</p>
+				<pre>
+				<code>
+li:hover .info-menu{
+	opacity: 1;
+}
+					</code>
+					</pre>
+				</section>
+				
+				<section>
+				<p>Tenemos un pequeño problema ¿no?</p>
+				<p>Utilizaremos transform para solucionarlo. Añadiremos a la clase <span class="enazul">info-menu</span> la propiedad transform</p>
+				<pre>
+				<code>
+li .info-menu{
+	-webkit-transform: rotateX(90deg);
+	transform: rotateX(90deg);
+}
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+				<p>Para hacer que al :hover el elemnto se vea nuevamente, debemos negar la transformación</p>
+				<pre>
+				<code>
+li:hover .info-menu{
+	opacity: 1;
+	-webkit-transform: none;
+	transform: none;
+}
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+				<p>Por último añadiremos al div <span class="enazul">info-menu</span> una transición para que el efecto :hover no se vea de golpe.<p>
+				<pre>
+				<code>
+li .info-menu{
+	-webkit-transition: all 0.5ms linear;
+    transition: all 0.5s linear;
+}
+					</code>
+					</pre>
+				</section>
+					
+				
+				<section>
+				<p>Hasta ahí el primer <span class="enazul">li</span>parece estar bien.</p>
+				<p>Ahora descomentamos el segundo "li" para darle css.</p>
+				</section>
+				
+				
+				<section>
+				<p>En el segundo <span class="enazul">li</span> las imagenes deben verse del lado izquierdo así que:</p>
+				<pre>
+				<code>
+li + li .info-menu a{
+	float: left;
+}
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+				<p>ahora asignamos un ancho a las imagenes para acomodar el texto:</p>
+				<pre>
+				<code>
+li + li .info-menu .imagenes-motos{
+	width: 130px;
+}
+					</code>
+					</pre>
+				</section>
+				
+				<section>
+				<p>Con esto el segundo<span class="enazul">li</span> ya quedo, vamos por el tercero</p>
+				</section>
+				
+				<section>
+				<p>En el tercer <span class="enazul">li</span> la imagenes deben aparece a al derecha, así que;</p>
+				<pre>
+				<code>
+li:last-child .imagenes-motos{
+	float: right;
+}
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+				<p>Listo!</p>
+				</section>
+				
+				
+				
+				<section>
+				<h2>Propiedad <span class="enazul"> animation</span></h2>
+					<p>Permiten animar la transición entre un estilo CSS y otro. Las animaciones constan de dos componentes: un estilo que describe la animación y un conjunto de fotogramas que indican su estado inicial y final, así como posibles puntos intermedios en la misma.</p>
+				</section>
+
+				<section>
+					<p>Las <span class="enazul">animaciones CSS</span> tienen tres ventajas principales sobre las técnicas tradicionales de animación basada en scripts:</p>
+					<p>
+						<ol>
+							<li>Es muy fácil crear animaciones sencillas, incluso sin tener conocimientos de Javascript.</li>
+							<li>La animación se muestra correctamente, incluso en equipos poco potentes.</li>
+							<li>Al ser el navegador controle la secuencia de la animación, permitimos que optimice el rendimiento y eficiencia de la misma</li>
+						</ol>
+					</p>
+				</section>
+
+
+
+				<section>
+				<p>Configurando la animación</p>
+				<p>Para realizar una animación se requiere del uso de dos elementos:</p>
+				<p class="pseudoclass">
+					<span class="enazul tabla"> animation</span><span>Nombre de la porpiedad CSS3</span><br>
+					<span class="enazul tabla">@keyframes</span><span>Permite declarar los fotogramas claves</span><br>
+				</p>
+				</section>
+				
+				
+				<section>
+					<h2>Propiedad <span class="enazul"> animation</span></h2>
+					<p>Esta propiedad consta de varias sub-propiedades. Con ellas podemos configurar el ritmo, la duración,  el nombre, la función de tiempo y otros detalles sobre la secuencia de la animación.</p>
+				</section>
+				
+				
+				<section>
+				<p><span class="enazul">Sub-propiedades</span> de animación son:</p>
+				<p class="pseudoclass big">
+					<span class="enazul tabla">animation-delay</span><span>Tiempo de retardo en el comienzo de animación.</span><br>
+					<span class="enazul tabla">animation-direction</span><span>Indica el comprtamiento de la animación al inicio y al final.</span><br>
+					<span class="enazul tabla">animation-duration</span><span>Cantidad de tiempo que tardará en completar su ciclo (duración).</span><br>
+					<span class="enazul tabla">animation-iteration-count</span><span>El número de veces que se repite.</span><br>
+				</section>				
+				
+				<section>
+				<p><span class="enazul">Sub-propiedades</span> de animación son:</p>
+				<p class="pseudoclass big">
+					<span class="enazul tabla">animation-name</span><span>El nombre de la animación.</span><br>
+					<span class="enazul tabla">animation-fill-mode</span><span>Qué estilos se aplicarán al elemento cuando la animación no se este ejecuntando</span><br>
+					<span class="enazul tabla">animation-play-state</span><span>Permite pausar y reanudar la animación.</span><br>
+					<span class="enazul tabla">animation-timing-function</span><span>Indica el ritmo de la animación.</span><br>
+				</p>
+				</section>
+
+
+
+				<section>
+					<p>Sub-propiedad <span class="enazul">[animation-direction]</p></h2>
+					<p>Consta de valores predefinidos que alteran la dirección de la animación:</p>
+					<div class="content-info">
+						<p><span class="enazul">normal:</span><span> La animación se reinicia comenzando desde el principio.</span></p>
+						<p><span class="enazul">alternate:</span><span> La animación, al terminar un ciclo, invierte su dirección. Es decir, los pasos de la animación se ejecutan al revés.</span></p>
+						<p><span class="enazul">reverse:</span><span>Cada ciclo de la animación se reproduce al revés</span></p>
+						<p><span class="enazul">alternate-reverse:</span><span>La animación se posiciona en el estado final, comienza a reproducirse al reves y, cuando llega al inicio vuelve a reproducirse de forma normal hasta llegar al final.</span></p>
+					</div>
+				</section>
+
+
+				<section>
+					<p>Sub-propiedad <span class="enazul">[animation-timing-function]</p></h2>
+					<p>Consta de valores predefinidos que alteran la dirección de la animación:</p>
+					<p class="pseudoclass">
+					<span class="enazul tabla">linear</span><span>La animación se realiza de manera uniforme.</span><br>
+					<span class="enazul tabla">ease</span><span>Acelera al inicio se retarda  y se acelera al final.</span><br>
+					<span class="enazul tabla">ease-in</span> <span>Se retarda al inicio, pero lo repone al final.</span><br>
+					<span class="enazul tabla">ease-out</span> <span>Acelera al inicio pero se retarda al final.</span><br>
+					<span class="enazul tabla">ease-in-out</span> <span>Se retarda al inicio, acelera y luego se retarda al final.</span><br>
+					<span class="enazul tabla">steps(-número-, end)</span> <span>divide la animación en un número de pasos</span><br>
+				</p>
+				</section>
+
+
+
+				
+							
+				<section>
+					<h2>Ejemplo<span class="enazul"> Propiedad animacón:</span></h2>
+					<pre>
+						<code>
+h1 {
+  animation-duration: 3s;
+  animation-name: h1animacion;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+						</code>
+					</pre>
+					<p>Con esto indicamos parametros de la animacón que deberán ejecutarse. Pero aún nos hace falta declarar la regla <span class="enazul">@keyframe</span> para ver algun resultado.</p>
+				</section>
+				
+				
+				<section>
+				<h2><span class="enazul">@keyframes</span></h2>
+					<div class="content-info">
+						<p>Permite controlar los pasos en una secuencia de animación CSS mediante el establecimiento de puntos de trayectoria (@keyframes) en la secuencia de animación.</p>
+						<p>Para utilizar keyframes, se crea una regla @keyframes con el mismo nombre declarado en la propiedad <span class="enazul">animation-name</span> para que coincida con la animación de keyframe.</p>
+					</div>
+				</section>
+
+				<section>
+				<h2><span class="enazul">@keyframes</span></h2>
+					<div class="content-info">
+						<p>Para obtener una regla @keyframe válida, debe incluir reglas para al menos los tiempos <span class="enazul"> 0% (from)</span> y <span class="enazul"> 100% (to)</span> que son los estados inicial y final de la animación. Si ambos desplazamientos de tiempo no se especifican, la declaración @keyframe es inválida y no se puede utilizar para la animación.</p>
+					</div>
+					<pre>
+						<code>
+@keyframes -nombre-animacion- {
+      0%{propiedad: valor}
+      100%{propiedad: valor}
+      }  
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<h2>Ejemplo regla<span class="enazul"> @keyframes</span></h2>
+					<pre>
+						<code>
+@-webkit-keyframes h1animacion /* Safari and Chrome */
+{
+0%   {font-size: 10px;}
+100% {font-size: 24px;}
+}
+
+@keyframes h1animacion
+{
+0%   {font-size: 10px;}
+100% {font-size: 24px;}
+}
+						</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<h2>Ahora añadiremos el código a nuestra práctica:</h2>
+					<pre>
+						<code>
+h1 {
+
+	-webkit-animation-duration: 3s;
+  	-webkit-animation-name: h1animacion;
+  	-webkit-animation-iteration-count: 1;
+  	-webkit-animation-direction: normal;
+
+  	animation-duration: 3s;
+  	animation-name: h1animacion;
+  	animation-iteration-count: 1;
+  	animation-direction: normal;
+}
+
+
+@-webkit-keyframes h1animacion /* Safari and Chrome */
+{
+0%   {font-size: 10px;}
+100% {font-size: 24px;}
+}
+
+@keyframes h1animacion
+{
+0%   {font-size: 10px;}
+100% {font-size: 24px;}
+}
+					</code>
+					</pre>
+					<p>Ahora con ambas reglas la animación se ejecuta, si el navegador tiene soporte.<span class="enazul"></p>
+				</section>
+
+
+
+				<section>
+					<p>Ahora cambiaremos los valores de porcentaje (0% y 100%) en @keyframe por <span class="enazul">from</span> y  <span class="enazul">to</span> </p>
+					<pre>
+						<code>
+
+@-webkit-keyframes h1animacion /* Safari and Chrome */
+{
+from   {font-size: 10px;}
+to {font-size: 24px;}
+}
+
+@keyframes h1animacion
+{
+from   {font-size: 10px;}
+to {font-size: 24px;}
+}
+					</code>
+					</pre>
+					<p>Ambas formas son correctas.<span class="enazul"></p>
+				</section>
+
+
+
+				<section>
+					<p>Trabajar con porcentajes permite agregar más pasos en la secuencia de animacón<span class="enazul">from</span> y  <span class="enazul">to</span> </p>
+					<pre>
+						<code>
+
+@-webkit-keyframes h1animacion /* Safari and Chrome */
+{
+ 0%{font-size: 10px;}
+ 30%{color: green;}
+ 60%{color: blue;}
+100% {font-size: 24px; color: #fff;}
+}
+
+@keyframes h1animacion 
+{
+ 0%{font-size: 10px;}
+ 30%{color: green;}
+ 60%{color: blue;}
+100% {font-size: 24px; color: #fff;}
+}
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Sintaxis abreviada de la porpiedad<span class="enazul">animación</span></p>
+					<pre>
+						<code>
+
+animation:[animation-duration][animation-timing-function][animation-delay][animation-direction][animation-iteration-count][animation-name]
+
+					</code>
+					</pre>
+				</section>
+
+				<section>
+					<p>Aplicando la sitaxis abrevianda: </p>
+					<pre>
+						<code>
+-webkit-animation: 3s normal 1 h1animacion;
+animation: 3s normal 1 h1animacion;
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Practiquemos un poco</p>
+				</section>
+
+
+				<section>
+					<p>Primero agregaremos los siguientes divs justo abajo del div "info-content" </p>
+					<pre>
+						<code>
+<div class="modelos moto1">
+	<a href="#">
+	<div class="sprite"></div>
+	<span class="name">SPORT</span>
+	</a>
+</div>
+					</code>
+					</pre>
+				</section>
+
+				<section>
+					<p>Copiaremos dos veces más ese código, para tener 3 nuevos bloques.</p>
+					<p>En los dos bloque que copiamos, cambiaremos la clase moto1 por moto2 y moto3.</p>
+				</section>
+
+
+
+				<section>
+					<p>Ahora le daremos estilo a esos bloques:</p>
+					<pre>
+						<code>
+.modelos {
+    background: #000;
+    display: inline-block;
+    height: auto;
+    width: 300px;
+    overflow: hidden;
+}
+.modelos a{
+	display: block;
+}
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Asignaremos un background y tamaño al div "sprite"</p>
+					<pre>
+						<code>
+.sprite{
+	width: 300px;
+	height: 216px;
+	background: url("../images/sprites/moto_1.jpg") no-repeat scroll 0 0 transparent;
+}
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Asignaremos un background y tamaño al 2° bloque en el div "sprite"</p>
+					<pre>
+						<code>
+.moto2 .sprite{
+	background: url("../images/sprites/moto_2.jpg") no-repeat scroll 0 0 transparent;
+}
+
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Asignaremos un background y tamaño al 3er bloque en el div "sprite"</p>
+					<pre>
+						<code>
+.moto3 .sprite{
+	background: url("../images/sprites/moto_3.jpg") no-repeat scroll 0 0 transparent;
+}
+
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Le daremos estilo al span clase "name"</p>
+					<pre>
+						<code>
+.name{
+	
+	background-color: #000;
+    display: block;
+    font-weight: bold;
+    padding: 3px;
+    text-align: center;
+}
+
+					</code>
+					</pre>
+				</section>
+
+
+
+				<section>
+					<p>Comezaremos animando "name" al :hover</p>
+					<pre>
+						<code>
+.modelos a:hover .name{
+	-webkit-animation: 500ms ease 0s normal 1 name-up;
+	animation: 500ms ease 0s normal 1 name-up;
+	background: red;
+	
+}
+
+					</code>
+					</pre>
+				</section>
+
+
+								<section>
+					<p>Ahora le asignaremos su regla @keyframe</p>
+					<pre>
+						<code>
+@-webkit-keyframes name-up {
+0% {
+    -webkit-transform: translateY(100%);
+}
+100% {
+    -webkit-transform: translateY(0%);
+}
+}
+@keyframes name-up {
+0% {
+    transform: translateY(100%);
+}
+100% {
+    transform: translateY(0%);
+
+}
+}
+
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Ya esta en nombre, ahora las motos:</p>
+				</section>
+
+
+
+
+				<section>
+					<p>Declaramos la porpiedad de animación al :hover para las motos</p>
+					<pre>
+						<code>
+.modelos a:hover .sprite{
+	-webkit-animation: 2s steps(23, end) 0s normal none infinite giro360;
+	animation: 2s steps(23, end) 0s normal none infinite giro360;
+}
+
+					</code>
+					</pre>
+				</section>
+
+
+				<section>
+					<p>Ahora aplicaremos la regla @keyframe:</p>
+					<pre>
+						<code>
+@-webkit-keyframes giro360 {
+	0% {
+		background-position: 0 center;
+	}
+	100% {
+		background-position: -6900px center;
+	}
+}
+@-moz-keyframes giro360 {
+	0% {
+		background-position: 0 center;
+	}
+	100% {
+		background-position: -6900px center;
+	}
+}
+
+					</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Y despúes de 10 clases por fin!</p>
+				</section>
+				
+				<section>
+					<p>Animaremos los globos aerostáticos..</p>
+				</section>
+				
+				
+				<section>
+					<p>Comenzaremos con el globo del lado inferior derecho</p>
+					<p>Para ello agregaremos un <span class="enazul">div</span> más dentro de <span class="enazul">"globos-down"</span></p>
+					<pre>
+			<code>
+<div class="globos-down">
+	<div class="globoimageDown"></div>
+</div>
+
+			</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Ahora modificaremos el css para pasar el background de un div al otro. </p>
+					<p>Y le daremos estilo al nuevo div <span class="enazul"> "globoimageDown"</span>  para que sea visble:</p>
+					<pre>
+			<code>
+.globos-down{
+	height: 324px;
+    margin-top: -150px;
+}
+
+.globoimageDown{
+	background: url("../images/globo.png") no-repeat scroll 0 0 transparent;
+	height: 324px;
+	width: 251px;
+}
+
+			</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Procedemos a colocar el globo al lado derecho de la pantalla con un <span class="enazul">position</span></p>
+					<pre>
+			<code>
+.globoimageDown{
+	background: url("../images/globo.png") no-repeat scroll 0 0 transparent;
+	height: 324px;
+	width: 251px;
+	
+	position: absolute;
+}
+
+			</code>
+					</pre>
+				</section>
+
+				
+				<section>
+					<p>Con el uso <span class="enazul">position</span> logramos darle al div del globo la capacidad de desplazarse por toda la pantalla sin afectar a los demas divs</p>
+				</section>
+				
+				
+				<section>
+					<p>Ahora procedemos a animar el globo...</p>
+					<pre>
+			<code>
+.globoimageDown{
+	background: url("../images/globo.png") no-repeat scroll 0 0 transparent;
+	height: 324px;
+	width: 251px;
+	position: absolute;
+	
+	animation: 150s normal infinite globoDown; 
+	-webkit-animation: 150s normal infinite globoDown; 
+}				
+			</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Declaramos la regla @keyframe para completar la animación:</p>
+					<pre>
+			<code>
+@-webkit-keyframes globoDown{
+	from{right: 0%; bottom: -30%;}
+	to{ right: 100%; bottom: 100%;}
+
+}
+@keyframes globoDown{
+	from{right: 0%; bottom: -30%;}
+	to{ right: 100%; bottom: 100%;}
+
+}				
+			</code>
+					</pre>
+				</section>
+				
+				<section>
+					<p>Con esto el globo ya tiene movimiento, vamos por el segundo.</p>
+				</section>
+				
+				
+				<section>
+					<p>Modifcaremos nuevamente el HTML.</p>
+					<p>Agregaremos un <span class="enazul">div</span> más dentro de <span class="enazul">"globos-up"</span></p>
+					<pre>
+			<code>
+<div class="globos-up">
+	<div class="globoimageUp"></div>
+</div>
+
+			</code>
+					</pre>
+				</section>
+				
+				<section>
+					<p>Igual que en el primer globo, modificaremos el css para pasar el background de un div al otro. </p>
+					<p>Y le daremos estilo al nuevo div <span class="enazul"> "globoimageDown"</span>  para que sea visble:</p>
+					<pre>
+			<code>
+.globos-up{
+	height: 380px;
+	width: 100%;
+}
+.globoimageUp{
+	background:url("../images/globos-up.png") no-repeat scroll 0 0 transparent; 
+	width: 390px;
+	height: 380px;
+	position: absolute; 
+}
+
+			</code>
+					</pre>
+				</section>
+				
+				<section>
+					<p>Le asignamos la propiedad de animación</p>
+					<pre>
+			<code>
+.globoimageUp{
+	background:url("../images/globos-up.png") no-repeat scroll 0 0 transparent; 
+	width: 390px;
+	height: 380px;
+	position: absolute; 
+	
+	-webkit-animation: 150s normal infinite globosUp; 
+	animation: 150s normal infinite globosUp; 
+}
+
+			</code>
+					</pre>
+				</section>
+				
+				<section>
+					<p>Ahora completamos asignandole su regla @keyframe</p>
+					<pre>
+			<code>
+@-webkit-keyframes globosUp{
+	from{left: 0%; bottom: 0%;}
+	to{ left: 70%; bottom: 100%;}
+
+}
+@keyframes globosUp{
+	from{left: 0%; bottom: 0%;}
+	to{ left: 70%; bottom: 100%;}
+
+}
+
+			</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Solo faltan las nubes...</p>
+				</section>
+				
+				
+				<section>
+					<p>Las nubes son un background dentro de la tag <span class="enazul"> body</span></p>
+					<p>Por ello sólo animaremos el background:</p>
+					<pre>
+			<code>
+body{
+	background: url("../images/nubes.png") repeat-x scroll 0 top #bedfec;
+	margin: 0;
+    -webkit-animation: nube 200s linear infinite;
+	animation: nube 200s linear infinite;
+	
+}	
+
+			</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Ahora le asignamos su regla @keyframe</p>
+					<pre>
+			<code>
+@-moz-keyframes nube {
+    from { background-position: center top; }
+    to  { background-position: 1900px top; }
+}
+@-webkit-keyframes nube {
+    from { background-position: center top; }
+    to  { background-position: 1900px 0; }
+}
+
+			</code>
+					</pre>
+				</section>
+				
+				
+				<section>
+					<p>Con eso queda listo.</p>
+				</section>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+				
+				
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
