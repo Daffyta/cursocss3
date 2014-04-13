@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Clase 12</title>
+
+		<meta name="description" content="Curso Teorico/Péctico de CSS3">
+		<meta name="author" content="Carlos Moneda">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/custom-styles.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img class="css3-logo" alt="css3" src="images/css3.svg">
+					<h1>Curso de CSS3</h1>
+					<h3><span class="enazul">{</span> El amigable mundo de la hojas de estilo <span class="enazul">}</span></h3>
+				</section>
+
+
+				<!-- Inician slides -->
+				
+				<section>
+					<h2>Diseño web <span class="enazul">responsive</span></h2>
+				</section>
+				
+				<section>
+				<h2>Diseño web <span class="enazul">responsive</span></h2>
+				<p>Son una serie de practicas aplicadas al diseño web que le permiten al contenido de un sitio web adaptarse a diferentes resoluciones en diferentes dispositivos.</p>
+				<p></p>
+				<img src="images/slide1.png" class="center image-shadow">
+				</section>
+				
+				<section>
+				<h2>Diseño web <span class="enazul">responsive</span></h2>
+				<p>en español, muchos sinónimos:</p>
+				<ul>
+				<li>Diseño adaptable</li>
+				<li>Diseño adaptativo </li>
+				<li>Diseño responsivo </li>
+				<li>Diseño multidispositivo </li>
+				<li>Diseño fluido</li>
+				<li>Diseño líquido</li>
+				</ul>
+				
+				</section>
+				
+				
+				<section>
+				<h2>Diseño web <span class="enazul">responsive</span></h2>
+				<p>Beneficios:</p>
+				<ul>
+				<li>Reducción de costos de producción.</li>
+				<li>Eficiencia en el mantenimiento.</li>
+				<li>Mejora la usabilidad. </li>
+				<li>Impacto en el visitante.</li>
+				</ul>
+				</section>
+				
+				<section>
+				<h2>Diseño web <span class="enazul">responsive</span></h2>
+				<p>¿Cómo lograrlo? </p>
+				<ul>
+				<li>Etiqueta meta Viewport</li>
+				<li>Media Querys</li>
+				<li>Fluid grids</li>
+				<li>Imágenes y texto flexibles</li>
+				</ul>
+				</section>
+				
+				
+				<section>
+				<h2>Etiqueta <span class="enazul">viewport</span></h2>
+				<pre>
+				<code>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+				</code>
+				</pre>
+				<p>
+				Sirve para definir qué área de pantalla está disponible al renderizar un documento, nivel de escala que puede realizar el usuario y si el navegador debe mostrar algún zoom inicial.
+				</p>
+				</section>
+				
+				
+				<section>
+				<h2>Etiqueta <span class="enazul">viewport</span></h2>
+				<pre>
+				<code>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+				</code>
+				</pre>
+				<ul>
+				<li><span class="enazul">Width:</span> anchura virtual (emulada) de la pantalla o anchura del viewport.</li>
+				<li><span class="enazul">Height:</span> altura virtual de la pantalla o anchura del viewport.</li>
+				<li><span class="enazul">Initial-scale:</span> la escala inicial del documento.</li>
+				</ul>
+				</section>
+				
+				<section>
+				<h2>Etiqueta <span class="enazul">viewport</span></h2>
+				<pre>
+				<code>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+				</code>
+				</pre>
+				<ul>
+				<li><span class="enazul">Minimum-scale:</span> la escala mínima que se puede poner en el documento.</li>
+				<li><span class="enazul">Maximum-scale:</span> la escala máxima configurable en el documento.</li>
+				<li><span class="enazul">User-scalable:</span> si se permite o no al usuario hacer zoom.</li>
+				</ul>
+				</section>
+				
+				
+				<section>
+				<h2><span class="enazul">Media Querys</span></h2>
+				<p class="pseudoclass">Permite la representación de contenido para adaptarse a condiciones como la resolución de pantalla</p><br>
+				<p class="pseudoclass">Añadido en CSS3, dejan que el contenido se adapte a un rango especifico sin tener que cambiar el contenido.</p>
+				</p>
+				</section>
+				
+				<section>
+				<h2><span class="enazul">Media Querys</span></h2>
+				<p class="pseudoclass">Consisten de un media type y  una o mas expresiones, implicando características del medio, la cual se resuelve como verdadera o falsa. </p><br>
+				<p class="pseudoclass">El resultado de la consulta es verdadera si el tipo de medio especificado en el media query concuerda con el tipo de dispositivo que está siendo mostrado.</p>
+				</p>
+				</section>
+				
+				
+				<section>
+				<h2><span class="enazul">Media Querys</span></h2>
+				<p class="pseudoclass">Pueden agregarse dentro de la(s) hojas de estilo vinculadas al HTML, con @import:</p><br>
+				<pre>
+				<code>
+@media screen and (max-width: 320px) {
+   /* Aquí van las reglas CSS necesarias */
+}
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+				<h2><span class="enazul">Media Querys</span></h2>
+				<p class="pseudoclass">También pueden agregarse en hojas de estilo externas, en este caso con la etiqueta LINK: </p><br>
+				<pre>
+				<code>
+	
+<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 480px)" href="style.css" />
+
+				</code>
+				</pre>
+				</section>
+				
+				
+				<section>
+				<h2>Sistema de <span class="enazul">Grids</span></h2>
+				<p class="pseudoclass">Premiten mantener el orden y usabilidad en el sitio, tomando en cuenta la resolución a la cual se visualizará.</p>
+				<img src="images/grid.png" class="center image-shadow">
+				</section>
+				
+				<section>
+				<h2>Sistema de <span class="enazul">Grids</span></h2>
+				<p>¿Qué grid elegir?</p>
+				<img src="images/grid_2.png" class="center image-shadow">
+				</section>
+				
+				<section>
+				<h2>Sistema de <span class="enazul">Grids</span></h2>
+				<p>Temas responsivos</p>
+				<img src="images/grid_3.png" class="center image-shadow">
+				</section>
+				
+					
+				<section>
+				<h2>Imágenes, texto y elementos<span class="enazul"> Fluidos</span></h2>
+				<p> El diseño fluido está pensado en términos de proporciones(%) en vez de valores fijos.</p>
+				<p> Al variar la resolución los elementos guardandaran la proporción entre ellos.</p>
+				<img src="images/web-fluido.jpg" class="center image-shadow">
+				</section>
+				
+				<section>
+				<h2>Imágenes, texto y elementos<span class="enazul"> Fluidos</span></h2>
+				<p class="pseudoclass"> Lo mismo aplica para elementos como texto, por ejemplo:</p><br>
+				<p class="pseudoclass"> Si el tamaño general es del 100%, que equivale a 16px, y tenemos un título de 22px, su nuevo tamaño será de 22/16 = 1.375em</p><br>
+				</section>
+				
+				
+				<section>
+				<h2>Imágenes, texto y elementos<span class="enazul"> Fluidos</span></h2>
+				<p class="pseudoclass">Con las imagenes y videos aplica algo similar, por ejemplo:</p>
+				<pre>
+				<code>
+				img, video { max-width:100%; }
+				</code>
+				</pre>
+				</section>
+				
+				<section>
+				<h2>Imágenes, texto y elementos<span class="enazul"> Fluidos</span></h2>
+				<p class="pseudoclass"><span class="enazul">Ventajas:</span></p>
+				<p class="pseudoclass">Optimiza la web para resoluciones inferiores a los 960px </p><br>
+				<p class="pseudoclass"><span class="enazul">Desventajas:</span></p>
+				<p class="pseudoclass">Proporciones en resoluciones mayores 1920px </p>
+				</section>
+				
+				
+				<section>
+				<h2>CSS y<span class="enazul"> Media Queries</span></h2>
+				<p> Mobile First</p>
+				<p> ¿Quién hace la magia? =los Media Quieries</p>
+				<img src="images/css-queries.png" class="center image-shadow">
+				</section>
+				
+				
+				<section>
+				<h2>CSS y<span class="enazul"> Media Queries</span></h2>
+				<p> ¿Por qué Mobile First?</p>
+				<img src="images/movil.png" class="center image-shadow">
+				</section>
+				
+				<section>
+				<p>Comencemos con la práctica...</p>
+				</section>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+				
+				
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

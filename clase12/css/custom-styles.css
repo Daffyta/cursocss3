@@ -1,0 +1,84 @@
+/*Mis estilos*/
+.enazul{
+	color: #33A9DC;
+}
+.enazul.title{
+	display: block;
+    font-size: 56px;
+    margin-top: 30px;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+.reveal section img.css3-logo,
+.reveal section img.web-layers{
+	border: none;
+	background: none;
+	box-shadow: none;
+	height: 250px;
+	width: auto;
+	margin-bottom: 20px;
+}
+.reveal section img.web-layers{
+	height: auto;
+}
+.reveal p.leyenda{
+	font-size: 28px;
+    margin: -20px 0 40px;
+}
+span.content-title{
+	display: block;
+    font-size: 70px;
+    margin-bottom: -21px;
+}
+.reveal pre{
+	width: 80%;
+	background-color: #3F3F3F;
+}
+.reveal .slides{
+	width: 100% !important;
+}
+.reveal pre code {
+    padding: 5px 0 5px 20px;
+}
+.enazul.codigo{
+	text-transform: lowercase;
+}
+
+span.tabla{
+	border: 1px solid #FFFFFF;
+    display: inline-block;
+	text-align: left;
+	padding: 4px 0 4px 10px;
+	width: 30%;
+}
+.enazul.tabla{
+	width: 250px;
+	margin: 5px;
+}
+
+.big .enazul.tabla{
+	width: 430px;
+}
+
+.enazul.tabla.back{
+	width: 384px;
+}
+p.pseudoclass{
+ text-align: left;
+ width: 80%;
+ margin: auto;
+}
+
+.reveal section img.fusion{
+	border: none;
+	background: none;
+	box-shadow: none;
+}
+.content-info{
+	text-align: left;
+	padding: 50px !important;
+}
+.reveal section img{
+	max-height: 460px;
+	width: auto;
+}
